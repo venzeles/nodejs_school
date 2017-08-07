@@ -1,0 +1,37 @@
+.error {
+    border: 1px solid red;
+}
+
+.success {
+    border: 1px solid green;
+}
+
+.progress {
+    border: 1px solid orange;
+}
+
+.apiURLs {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.apiURLs > div {
+    margin-right: 10px;
+}
+
+#myForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 442px;
+    padding-bottom: 20px;
+}
+
+#myForm > input {
+    margin-bottom: 10px;
+}
+
+#resultContainer {
+    max-width: 442px;
+    text-align: center;
+}

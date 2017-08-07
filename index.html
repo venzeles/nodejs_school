@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Node.js</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="apiURLs">
+            <div v-for="(url, index) in apiURLs">
+                <input type="radio" :id="'radio'+index" :value="url" v-model="currentApiURL">
+                <label :for="'radio'+index">"{{ url }}"</label>
+            </div>
+        </div>
+
+        <form id="myForm" method="post" @submit.prevent="submit()" :action="currentApiURL">
+            <input v-for="(input, key) in form"
+                   :name="key"
+                   type="text"
+                   v-model.trim="input.value"
+                   :placeholder="input.placeholder"
+                   v-mask="input.mask || ''">
+            <button id="submitButton" type="submit" :disabled="btnDisabled">Отправить</button>
+        </form>
+
+        <div id="resultContainer" :class="{ success: status === 'success', error: status === 'error', progress: status === 'progress' }">{{ message }}</div>
+    </div>
+
+    <footer>
+        <script src="lib/vue.min.js" defer></script>
+        <script src="lib/axios.min.js" defer></script>
+        <script src="lib/vee-validate.js" defer></script>
+        <script src="lib/v-mask.min.js" defer></script>
+        <script src="index.js" defer></script>
+    </footer>
+</body>
+</html>
